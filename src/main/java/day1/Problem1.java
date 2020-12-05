@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Problem1 {
 
-	public static int twoSum( final List<Integer> expenses, final int target ) {
+	private static int twoSum( final List<Integer> expenses, final int target ) {
 		Set<Integer> numbers = new HashSet<>();
 		for ( Integer expense : expenses ) {
 			int complement = target - expense;

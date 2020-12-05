@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Problem2 {
 
-	public static int threeSum( final List<Integer> expenses, final int target ) {
+	private static int threeSum( final List<Integer> expenses, final int target ) {
 		for ( int i = 0; i < expenses.size(); i++ ) {
 			int newTarget = target - expenses.get( i );
 			Set<Integer> numbers = new HashSet<>();

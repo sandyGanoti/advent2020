@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Problem2 {
 
-	public static int validatePasswords() {
+	private static int validatePasswords() {
 		int validPasscodes = 0;
 		try ( BufferedReader br = new BufferedReader( new FileReader(
 				"/Users/sandy/JavaProjects/advent2020/src/main/java/day2/input" ) ) ) {
