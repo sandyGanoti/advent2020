@@ -8,7 +8,11 @@ import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Problem2 {
+	private static final Logger LOGGER = LoggerFactory.getLogger( Problem2.class );
 
 	private static BigInteger getMultiTreesNumber() {
 		/*
@@ -73,7 +77,9 @@ public class Problem2 {
 				}
 
 			} catch ( FileNotFoundException w ) {
+				LOGGER.error( "No file found ", w );
 			} catch ( IOException e ) {
+				LOGGER.error( "Another problem was encountered", e );
 			}
 			if ( trees != 0 ) {
 				multiplyNumberOfTrees = multiplyNumberOfTrees.multiply(

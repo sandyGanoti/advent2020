@@ -5,7 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Problem2 {
+	private static final Logger LOGGER = LoggerFactory.getLogger( Problem2.class );
 
 	private static int validatePasswords() {
 		int validPasscodes = 0;
@@ -37,7 +41,9 @@ public class Problem2 {
 
 			}
 		} catch ( FileNotFoundException w ) {
+			LOGGER.error( "No file found ", w );
 		} catch ( IOException e ) {
+			LOGGER.error( "Another problem was encountered", e );
 		}
 
 		return validPasscodes;

@@ -5,7 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Problem1 {
+	private static final Logger LOGGER = LoggerFactory.getLogger( Problem1.class );
 
 	private static int getTreesNumber() {
 		int trees = 0;
@@ -28,7 +32,7 @@ public class Problem1 {
 				if ( steps > size ) {
 					int diff = steps - size;
 					steps = diff;
-				} else if (steps == size) {
+				} else if ( steps == size ) {
 					steps = 0;
 				}
 
@@ -38,7 +42,9 @@ public class Problem1 {
 
 			}
 		} catch ( FileNotFoundException w ) {
+			LOGGER.error( "No file found ", w );
 		} catch ( IOException e ) {
+			LOGGER.error( "Another problem was encountered", e );
 		}
 
 		return trees;

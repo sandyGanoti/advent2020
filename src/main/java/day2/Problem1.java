@@ -5,7 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Problem1 {
+	private static final Logger LOGGER = LoggerFactory.getLogger( Problem1.class );
 
 	private static int getValidPasswords() {
 		int validPasscodes = 0;
@@ -27,16 +31,18 @@ public class Problem1 {
 
 				int count = 0;
 				for ( char passcodeChar : passcode.toCharArray() ) {
-                    if ( String.valueOf( passcodeChar ).equals( character ) ) {
-                        count++;
-                    }
+					if ( String.valueOf( passcodeChar ).equals( character ) ) {
+						count++;
+					}
 				}
-                if ( count >= upperLimit && count <= bottomLimit ) {
-                    validPasscodes++;
-                }
+				if ( count >= upperLimit && count <= bottomLimit ) {
+					validPasscodes++;
+				}
 			}
 		} catch ( FileNotFoundException w ) {
+			LOGGER.error( "No file found ", w );
 		} catch ( IOException e ) {
+			LOGGER.error( "Another problem was encountered", e );
 		}
 
 		return validPasscodes;
